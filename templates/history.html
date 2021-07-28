@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}
+History
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>SYMBOL</th>
+            <th>SHARE NAME</th>
+            <th>QUANTITY</th>
+            <th>TRANSACTION TYPE</th>
+            <th>TANSACTION AMOUNT</th>
+            <th>TRANSACTION DATE</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for D in data %}
+        <tr>
+            <td>{{D["SHARESYMBOL"]}}</td>
+            <td>{{D["SHARE"]}}</td>
+            <td>{{D["SHAREQTY"]}}</td>
+            <td>{{D["TRANSACTIONTYPE"]}}</td>
+            <td>{{D["AMOUNT"]}}</td>
+            <td>{{D["TRANDATE"]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

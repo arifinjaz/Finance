@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+<form action="/sell" method="post">
+    <div class="form-group">
+        <select class="form-control" name="symbol">
+            <option disabled="" selected="" value="">Symbol</option>
+
+            {% for sym in symbols %}
+            <option value="{{sym["SHARESYMBOL"]}}">{{sym["SHARESYMBOL"]}}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+    <div class="form-group">
+        <input autocomplete="off" class="form-control" min="0" name="shares" placeholder="Shares" type="number">
+    </div>
+    <button class="btn btn-primary" type="submit">Sell</button>
+</form>
+
+
+{% endblock %}

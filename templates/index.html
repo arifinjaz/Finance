@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot style="font-weight: bold;">
+            <tr>
+                <td colspan="4"></td>
+                <td>{{grandtotal}}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for d in data %}
+            <tr>
+                <td>{{d["SHARESYMBOL"]}}</td>
+                <td>{{d["SHARE"]}}</td>
+                <td>{{d["QTY"]}}</td>
+                <td>{{d["PRICE"]}}</td>
+                <td>{{d["TOTAL"]}}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4" style="text-align: center;">CASH</td>
+                <td>{{balance}}</td>
+            </tr>
+        </tbody>
+</table>
+{% endblock %}
